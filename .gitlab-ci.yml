@@ -1,0 +1,13 @@
+---
+run_renovate:
+  image: ghcr.io/renovate/renovate:latest
+  resource_group: production
+  script:
+    - renovate $RENOVATE_EXTRA_FLAGS
+  only:
+    - schedules
+    - web
+  variables:
+    LOG_LEVEL: debug
+  tags:
+    - docker
